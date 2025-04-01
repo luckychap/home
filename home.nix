@@ -55,7 +55,7 @@
   imports = [
     ./apps/zellij.nix
     ./apps/ssh.nix
-#    ./apps/gnome-terminal.nix
+    ./apps/gnome-terminal.nix
     ./srv/ssh-agent.nix
   ];
 
