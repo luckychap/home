@@ -11,8 +11,8 @@
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "lucky";
-  home.homeDirectory = "/home/lucky";
+  home.username = builtins.getEnv "USER";
+  home.homeDirectory = "/home/${builtins.getEnv "USER"}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -48,6 +48,14 @@
     gum
     vault
     k9s
+    xclip
+    zellij
+  ];
+
+  imports = [
+    ./apps/zellij.nix
+    ./apps/ssh.nix
+#    ./apps/gnome-terminal.nix
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
