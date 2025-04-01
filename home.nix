@@ -44,7 +44,6 @@
     # '')
     kubectl
     kubernetes-helm
-    vim
     gum
     vault
     k9s
@@ -56,6 +55,7 @@
   imports = [
     ./apps/zellij.nix
     ./apps/ssh.nix
+    ./apps/vim.nix
     ./apps/gnome-terminal.nix
     ./srv/ssh-agent.nix
   ];
