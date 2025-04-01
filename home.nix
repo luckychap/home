@@ -56,6 +56,7 @@
     ./apps/zellij.nix
     ./apps/ssh.nix
 #    ./apps/gnome-terminal.nix
+    ./srv/ssh-agent.nix
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
