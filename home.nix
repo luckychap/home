@@ -50,6 +50,7 @@
     k9s
     xclip
     zellij
+    devbox
   ];
 
   imports = [
