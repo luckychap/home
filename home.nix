@@ -11,8 +11,8 @@
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = builtins.getEnv "USER";
-  home.homeDirectory = "/home/${builtins.getEnv "USER"}";
+  home.username = "${config.home.sessionVariables.USER}";
+  home.homeDirectory = "/home/${config.home.sessionVariables.USER}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -88,10 +88,10 @@
   #
   # or
   #
-  #  /etc/profiles/per-user/lucky/etc/profile.d/hm-session-vars.sh
+  #  /etc/profiles/per-user/lakatos/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    USER = builtins.getEnv "USER";
   };
 
   # Let Home Manager install and manage itself.
