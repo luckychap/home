@@ -45,10 +45,10 @@
     kubectl
     kubernetes-helm
     gum
+    curl
     vault
     k9s
     xclip
-    zellij
     devbox
   ];
 
