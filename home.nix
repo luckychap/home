@@ -44,6 +44,7 @@
     # '')
     kubectl
     kubernetes-helm
+    kind
     gum
     curl
     vault
