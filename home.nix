@@ -42,6 +42,8 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    docker
+    docker-compose
     kubectl
     kubernetes-helm
     kind
