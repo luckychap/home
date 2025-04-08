@@ -23,6 +23,11 @@
         hostname = "172.31.32.46";
         identityFile = "~/.ssh/id_rsa_general";
       };
+      "ctl-master" = {
+        user = "toor";
+        hostname = "10.180.133.56";
+        identityFile = "~/.ssh/id_ed25519_ctl";
+      };
     };
   };
 }
