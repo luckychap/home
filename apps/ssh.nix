@@ -28,6 +28,11 @@
         hostname = "10.180.133.56";
         identityFile = "~/.ssh/id_ed25519_ctl";
       };
+      "hifi" = {
+        user = "lucky";
+        hostname = "192.168.0.102";
+        PubkeyAuthentication = "no";
+      };
     };
   };
 }
