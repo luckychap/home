@@ -46,6 +46,7 @@
     docker-compose
     kubectl
     kubernetes-helm
+    kubernetes-helmPlugins.helm-diff
     kind
     gum
     curl
