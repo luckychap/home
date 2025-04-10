@@ -45,8 +45,7 @@
     docker
     docker-compose
     kubectl
-    kubernetes-helm
-    kubernetes-helmPlugins.helm-diff
+    (wrapHelm kubernetes-helm { plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ]; })
     kind
     gum
     curl
