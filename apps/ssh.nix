@@ -31,7 +31,7 @@
       "hifi" = {
         user = "lucky";
         hostname = "192.168.0.102";
-        PubkeyAuthentication = "no";
+        identitiesOnly = true;
       };
     };
   };
