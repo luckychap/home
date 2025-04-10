@@ -20,6 +20,8 @@
     kubectl
     (wrapHelm kubernetes-helm { plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ]; })
     kind
+    jq
+    yq-go
     gum
     curl
     vault
