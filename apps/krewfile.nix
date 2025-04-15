@@ -1,9 +1,9 @@
 # https://github.com/brumhard/krewfile
 
-  inputs.krewfile = {
-    url = "github:brumhard/krewfile";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+inputs.krewfile = {
+  url = "github:brumhard/krewfile";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
 
 
 { inputs, pkgs, ... }: {
