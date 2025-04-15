@@ -15,19 +15,30 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    # Containers
     docker
     docker-compose
     kind
+
+    # K8s
     kubectl
     krew
     k9s
     (wrapHelm kubernetes-helm { plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ]; })
+
+    # Data
     jq
     yq-go
+
+    # Shell tools
     gum
     curl
-    vault
     xclip
+
+    # Security
+    vault
+
+    # Development tools
     devbox
   ];
 
