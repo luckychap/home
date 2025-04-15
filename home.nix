@@ -17,15 +17,16 @@
   home.packages = with pkgs; [
     docker
     docker-compose
-    kubectl
-    (wrapHelm kubernetes-helm { plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ]; })
     kind
+    kubectl
+    krew
+    k9s
+    (wrapHelm kubernetes-helm { plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ]; })
     jq
     yq-go
     gum
     curl
     vault
-    k9s
     xclip
     devbox
   ];
