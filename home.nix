@@ -23,7 +23,6 @@
     # K8s
     kubectl
     krew
-    k9s
     (wrapHelm kubernetes-helm { plugins = [ pkgs.kubernetes-helmPlugins.helm-diff ]; })
 
     # Data
@@ -47,6 +46,7 @@
     ./apps/ssh.nix
     ./apps/vim.nix
     ./apps/gnome-terminal.nix
+    ./apps/k9s.nix
     ./srv/ssh-agent.nix
   ];
 
