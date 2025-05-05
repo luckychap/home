@@ -47,7 +47,7 @@
     ./apps/vim.nix
     ./apps/gnome-terminal.nix
     ./apps/k9s.nix
-    ./srv/ssh-agent.nix
+    ./services/ssh-agent.nix
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
