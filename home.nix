@@ -47,6 +47,7 @@
     ./apps/vim.nix
     ./apps/gnome-terminal.nix
     ./apps/k9s.nix
+#    ./apps/systemd.nix
     ./services/ssh-agent.nix
   ];
 
