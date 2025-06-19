@@ -30,7 +30,7 @@
       };
       "ctl-master" = {
         user = "toor";
-        hostname = "10.180.133.56";
+        hostname = "10.180.136.20";
         identityFile = "~/.ssh/id_ed25519_ctl";
       };
       "hifi" = {
