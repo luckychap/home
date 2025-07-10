@@ -39,6 +39,9 @@
 
     # Development tools
     devbox
+
+    # Network
+    nmap
   ];
 
   imports = [
