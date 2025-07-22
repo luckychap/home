@@ -36,6 +36,7 @@
 
     # Security
     vault
+    keystore-explorer
 
     # Development tools
     devbox
