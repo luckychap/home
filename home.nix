@@ -43,6 +43,9 @@
 
     # Network
     nmap
+
+    # Java
+    zulu17
   ];
 
   imports = [
