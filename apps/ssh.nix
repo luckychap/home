@@ -38,6 +38,11 @@
         hostname = "192.168.0.102";
         identitiesOnly = true;
       };
+      "homeai" = {
+        user = "toor";
+        hostname = "192.168.0.177";
+        identityFile = "~/.ssh/id_ed25519_homeai";
+      };
     };
   };
 }
