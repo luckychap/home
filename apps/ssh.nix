@@ -3,6 +3,11 @@
     enable = true;
     serverAliveInterval = 60;
     matchBlocks = {
+      "sb-ai = {
+        user = "locallm"
+        hostname = "10.180.136.87"
+        identityFile = "~/.ssh/id_ed25519_sb_ai";
+      }
       "kadmin" = {
         user = "mlakatos";
         hostname = "10.180.136.183";
@@ -47,6 +52,10 @@
         user = "root";
         hostname = "192.168.0.234";
         identityFile = "~/.ssh/id_ed25519_docker";
+      };
+      "mercury" = {
+        user = "toor";
+        hostname = "192.168.0.104"
       };
     };
   };
