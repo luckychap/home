@@ -54,8 +54,9 @@
         identityFile = "~/.ssh/id_ed25519_docker";
       };
       "mercury" = {
-        user = "toor";
+        user = "lucky";
         hostname = "192.168.0.104";
+        identityFile = "~/.ssh/id_ed25519_mercury";
       };
     };
   };
