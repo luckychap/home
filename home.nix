@@ -46,6 +46,10 @@
 
     # Java
     zulu17
+
+    # system
+    htop
+
   ];
 
   imports = [
