@@ -3,6 +3,10 @@
     enable = true;
     serverAliveInterval = 60;
     matchBlocks = {
+      "git.ads.local" = {
+        hostname = "git.ads.local";
+        identityFile = "~/.ssh/id_ed25519_github";
+      };
       "sb-ai" = {
         user = "locallm";
         hostname = "10.180.136.87";
