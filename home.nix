@@ -67,6 +67,7 @@
     enable = true;
     settings = {
       "org/gnome/shell" = {
+        # `gnome-extensions list` for a list
         enabled-extensions = [
           "clipboard-indicator@tudmotu.com"
         ];
