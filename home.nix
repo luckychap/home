@@ -49,6 +49,7 @@
 
     # system
     htop
+    gnomeExtensions.clipboard-indicator
 
   ];
 
@@ -61,6 +62,17 @@
 #    ./apps/systemd.nix
     ./services/ssh-agent.nix
   ];
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/shell" = {
+        enabled-extensions = [
+          "clipboard-indicator@tudmotu.com"
+        ];
+      };
+    };
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
