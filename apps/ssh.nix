@@ -5,7 +5,7 @@
     matchBlocks = {
       "git.ads.local" = {
         hostname = "git.ads.local";
-        identityFile = "~/.ssh/id_ed25519_github";
+        identityFile = "~/.ssh/id_ed25519_gitlab";
       };
       "sb-ai" = {
         user = "locallm";
