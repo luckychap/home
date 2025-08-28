@@ -50,6 +50,7 @@
     # system
     htop
     gnomeExtensions.clipboard-indicator
+    smile
 
   ];
 
