@@ -61,6 +61,7 @@
     ./apps/vim.nix
     ./apps/gnome-terminal.nix
     ./apps/k9s.nix
+#    ./apps/bash.nix
 #    ./apps/systemd.nix
     ./services/ssh-agent.nix
     ./vars/session-vars.nix
