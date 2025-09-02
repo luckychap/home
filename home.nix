@@ -62,6 +62,7 @@
     ./apps/k9s.nix
 #    ./apps/systemd.nix
     ./services/ssh-agent.nix
+    ./vars/session-vars.nix
   ];
 
   dconf = {
@@ -113,9 +114,9 @@
   #
   #  /etc/profiles/per-user/lakatos/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    USER = builtins.getEnv "USER";
-  };
+  # home.sessionVariables = {
+  #   USER = builtins.getEnv "USER";
+  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
