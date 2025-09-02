@@ -1,4 +1,7 @@
 {
+    imports: [
+        ../vars/session-vars.nix
+    ];
     systemd.user = {
         enable = true;
         mounts = {
