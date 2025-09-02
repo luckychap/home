@@ -33,6 +33,7 @@
     gum
     curl
     xclip
+    awscli2
 
     # Security
     vault
