@@ -48,10 +48,12 @@
     # Java
     zulu17
 
-    # system
+    # System
     htop
     gnomeExtensions.clipboard-indicator
     smile
+
+    # Others
 
   ];
 
