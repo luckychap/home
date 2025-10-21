@@ -54,6 +54,7 @@
     smile
 
     # Others
+    standardnotes
 
   ];
 
