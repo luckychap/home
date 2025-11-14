@@ -58,7 +58,7 @@
       };
       "homeai" = {
         user = "toor";
-        hostname = "192.168.0.177";
+        hostname = "192.168.0.110";
         identityFile = "~/.ssh/id_ed25519_homeai";
         serverAliveInterval = 60;
       };
@@ -70,7 +70,7 @@
       };
       "mercury" = {
         user = "lucky";
-        hostname = "192.168.0.104";
+        hostname = "192.168.0.105";
         identityFile = "~/.ssh/id_ed25519_mercury";
         serverAliveInterval = 60;
       };
