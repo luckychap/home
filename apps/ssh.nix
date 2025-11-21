@@ -3,6 +3,7 @@
     enableDefaultConfig = false;
     enable = true;
     matchBlocks = {
+      # Work
       "git.ads.local" = {
         hostname = "git.ads.local";
         identityFile = "~/.ssh/id_ed25519_gitlab";
@@ -50,6 +51,7 @@
         identityFile = "~/.ssh/id_ed25519_ctl";
         serverAliveInterval = 60;
       };
+      # Home
       "hifi" = {
         user = "lucky";
         hostname = "192.168.0.102";
