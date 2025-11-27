@@ -44,6 +44,7 @@
 
     # Network
     nmap
+    remmina
 
     # Java
     zulu17
