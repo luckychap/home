@@ -53,6 +53,7 @@
     htop
     gnomeExtensions.clipboard-indicator
     smile
+    solaar
 
     # Others
     standardnotes
