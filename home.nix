@@ -67,11 +67,16 @@
     ./apps/vim.nix
     ./apps/gnome-terminal.nix
     ./apps/k9s.nix
+#    ./apps/vscode.nix
 #    ./apps/bash.nix
 #    ./apps/systemd.nix
     ./services/ssh-agent.nix
     ./vars/session-vars.nix
   ];
+#  programs.vscode = {
+#    enable = true;
+#    package = pkgs.vscode.fhs;
+#  };
 
   dconf = {
     enable = true;
