@@ -34,6 +34,7 @@
     curl
     xclip
     awscli2
+    nodejs_24
 
     # Security
     vault
