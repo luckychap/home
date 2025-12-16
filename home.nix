@@ -19,6 +19,7 @@
     docker
     docker-compose
     kind
+    cloud-provider-kind
 
     # K8s
     kubectl
