@@ -53,9 +53,9 @@
       };
       # Home
       "hifi" = {
-        user = "lucky";
+        user = "volumio";
         hostname = "192.168.0.102";
-        identitiesOnly = true;
+        identityFile = "~/.ssh/id_ed25519_hifi";
         serverAliveInterval = 60;
       };
       "homeai" = {
