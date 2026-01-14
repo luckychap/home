@@ -115,6 +115,9 @@ in
         command = "sh -c '/home/${config.home.sessionVariables.USER}/.nix-profile/bin/smile'";
         name = "emoji";
       };
+      "org/gnome/desktop/peripherals/touchpad" = {
+        disable-while-typing = true;
+      };
     };
   };
 
