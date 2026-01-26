@@ -63,8 +63,10 @@ in
     # Network
     nmap
 
-    # Java
+    # Language
     zulu17
+    python312
+    python312Packages.pip
 
     # System
     htop
