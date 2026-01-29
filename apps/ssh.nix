@@ -35,7 +35,7 @@
       };
       "ezmomi" = {
         user = "root";
-        hostname = "172.31.32.46";
+        hostname = "10.180.136.46";
         identityFile = "~/.ssh/id_rsa_general";
         serverAliveInterval = 60;
       };
