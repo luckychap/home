@@ -76,6 +76,12 @@
         identityFile = "~/.ssh/id_ed25519_mercury";
         serverAliveInterval = 60;
       };
+      "venus" = {
+        user = "toor";
+        hostname = "192.168.0.103";
+        identityFile = "~/.ssh/id_ed25519_venus";
+        serverAliveInterval = 60;
+      };
     };
   };
 }
