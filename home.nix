@@ -73,6 +73,8 @@ in
     gnomeExtensions.clipboard-indicator
     smile
     solaar
+    cifs-utils
+    fuse3
 
     # Others
     standardnotes
