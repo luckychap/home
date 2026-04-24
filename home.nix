@@ -1,20 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  vault_1_20_4 = pkgs.vault.overrideAttrs (old: rec {
-    version = "1.20.4";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "hashicorp";
-      repo = "vault";
-      rev = "v${version}";
-      sha256 = "sha256-GZ+/NzOjcKTYOq4HajKGD68RNxIdXxfLo/pAewaZ8F8=";
-    };
-
-    vendorSha256 = "sha256-mhT5s1nIdX/57TDEaWwbni0E7DX0W0WwwvrSr7L66hI=";
-  });
-in
-
 {
   # Home Manager needs to enable using unfree packages
   nixpkgs = {
@@ -54,7 +39,6 @@ in
 
     # Security
     # vault
-    # vault_1_20_4
     keystore-explorer
 
     # Development tools
@@ -79,6 +63,7 @@ in
     # Others
     standardnotes
     vlc
+    pinta
 
   ];
 
