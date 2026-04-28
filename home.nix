@@ -33,7 +33,8 @@
     # Shell tools
     gum
     curl
-    xclip
+    # xclip
+    wl-clipboard
     awscli2
     nodejs_24
 
@@ -64,6 +65,7 @@
     standardnotes
     vlc
     pinta
+    brave
 
   ];
 
@@ -71,7 +73,8 @@
     ./apps/zellij.nix
     ./apps/ssh.nix
     ./apps/vim.nix
-    ./apps/gnome-terminal.nix
+#    ./apps/gnome-terminal.nix
+    ./apps/ptyxis.nix
     ./apps/k9s.nix
 #    ./apps/vscode.nix
 #    ./apps/bash.nix
@@ -106,6 +109,9 @@
       };
       "org/gnome/desktop/peripherals/touchpad" = {
         disable-while-typing = true;
+      };
+      "org/gnome/Ptyxis/Profiles/1ac2893a560c4bb82ca5563469ee6ff1" = {
+        opacity = "0.85";
       };
     };
   };

@@ -2,7 +2,7 @@
   programs.zellij = {
     enable = true;
     settings = {
-      copy_command = "xclip -selection clipboard";
+      copy_command = "wl-copy";
       show_startup_tips = false;
       keybinds = {
         shared_except = {
