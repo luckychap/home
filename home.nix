@@ -119,7 +119,7 @@
       "org/gnome/Ptyxis/Profiles/${config.home.sessionVariables.PTYXIS_PROFILE}" = {
         opacity = 0.8;
         label = "Default";
-        palette= "Vs Code";
+        palette= "Brogrammer";
       };
     };
   };
