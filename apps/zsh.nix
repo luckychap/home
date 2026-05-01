@@ -22,11 +22,6 @@
       alert = "notify-send --urgency=low -i \"$([ $? = 0 ] && echo terminal || echo error)\" \"$(history | tail -n1 | sed -e 's/^\\s*[0-9]\\+\\s*//;s/[;&|]\\s*alert$//')\"";
     };
     initContent = ''
-      # Load bash aliases if present
-      if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
-      fi
-
       # Homebrew environment
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       if [ -e /home/lucky/.nix-profile/etc/profile.d/nix.sh ]; then . /home/lucky/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
