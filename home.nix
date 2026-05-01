@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 
+# let
+#   ptyxisProfileUuid = "1ac2893a560c4bb82ca5563469ee6ff1";
+# in
+
 {
   # Home Manager needs to enable using unfree packages
   nixpkgs = {
@@ -73,19 +77,14 @@
     ./apps/zellij.nix
     ./apps/ssh.nix
     ./apps/vim.nix
-#    ./apps/gnome-terminal.nix
     ./apps/ptyxis.nix
     ./apps/k9s.nix
 #    ./apps/vscode.nix
-#    ./apps/bash.nix
+    ./apps/bash.nix
 #    ./apps/systemd.nix
     ./services/ssh-agent.nix
     ./vars/session-vars.nix
   ];
-#  programs.vscode = {
-#    enable = true;
-#    package = pkgs.vscode.fhs;
-#  };
 
   dconf = {
     enable = true;
@@ -95,7 +94,8 @@
         enabled-extensions = [
           "clipboard-indicator@tudmotu.com"
         ];
-      };
+        disable-extension-version-validation = true;
+      }; 
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
@@ -110,8 +110,10 @@
       "org/gnome/desktop/peripherals/touchpad" = {
         disable-while-typing = true;
       };
-      "org/gnome/Ptyxis/Profiles/1ac2893a560c4bb82ca5563469ee6ff1" = {
-        opacity = "0.85";
+      "org/gnome/Ptyxis/Profiles/${config.home.sessionVariables.PTYXIS_PROFILE}" = {
+        opacity = 0.8;
+        label = "Default";
+        palette= "Vs Code";
       };
     };
   };
@@ -147,9 +149,10 @@
   #
   #  /etc/profiles/per-user/lakatos/etc/profile.d/hm-session-vars.sh
   #
-  # home.sessionVariables = {
+  home.sessionVariables = {
   #   USER = builtins.getEnv "USER";
-  # };
+    PTYXIS_PROFILE = builtins.getEnv "PTYXIS_PROFILE";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
