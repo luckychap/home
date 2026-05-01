@@ -42,6 +42,11 @@
     awscli2
     nodejs_24
 
+    # zsh
+    # zsh-autosuggestions
+    # zsh-history-substring-search
+    # zsh-syntax-highlighting
+
     # Security
     # vault
     keystore-explorer
@@ -81,6 +86,7 @@
     ./apps/k9s.nix
 #    ./apps/vscode.nix
     ./apps/bash.nix
+    ./apps/zsh.nix
 #    ./apps/systemd.nix
     ./services/ssh-agent.nix
     ./vars/session-vars.nix
