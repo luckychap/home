@@ -29,6 +29,7 @@
 
       # Homebrew environment
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      if [ -e /home/lucky/.nix-profile/etc/profile.d/nix.sh ]; then . /home/lucky/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
     '';
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
