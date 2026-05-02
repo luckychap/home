@@ -68,6 +68,7 @@
     smile
     solaar
     cifs-utils
+    smbnetfs
     fuse3
 
     # Others
