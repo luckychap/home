@@ -16,9 +16,9 @@
       awsCLT = "aws eks update-kubeconfig --name ire-cltests-dev-eks --alias aws-eks-comploadtests --profile comploadtests";
       awsDVV = "aws eks update-kubeconfig --name fcs-sk-dvv-dev-eks --alias aws-eks-dvv --profile dvv";
       home-upgrade = "nix-channel --update && home-manager switch";
-      gp-connect = "globalprotect connect --portal portal.scheidt-bachmann.sk --username lakatos.martin";
-      gp-status = "globalprotect show --status";
-      gp-disconnect = "globalprotect disconnect";
+      vpn-connect = "globalprotect connect --portal portal.scheidt-bachmann.sk --username lakatos.martin";
+      vpn-status = "globalprotect show --status";
+      vpn-disconnect = "globalprotect disconnect";
       ll = "ls -alF";
       la = "ls -A";
       l = "ls -CF";
