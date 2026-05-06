@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   programs.zsh = {
@@ -25,6 +25,7 @@
       alert = "notify-send --urgency=low -i \"$([ $? = 0 ] && echo terminal || echo error)\" \"$(history | tail -n1 | sed -e 's/^\\s*[0-9]\\+\\s*//;s/[;&|]\\s*alert$//')\"";
     };
     initContent = ''
+      [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
       # Homebrew environment
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       if [ -e /home/lucky/.nix-profile/etc/profile.d/nix.sh ]; then . /home/lucky/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
