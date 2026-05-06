@@ -2,6 +2,9 @@
   programs.ssh = {
     enableDefaultConfig = false;
     enable = true;
+    extraOptionOverrides = {
+      AddKeysToAgent = "yes";
+    };
     matchBlocks = {
       # Work
       "git.ads.local" = {
