@@ -65,6 +65,8 @@
     # System
     htop
     gnomeExtensions.clipboard-indicator
+    gnomeExtensions.just-perfection
+    gnomeExtensions.argos
     smile
     solaar
     cifs-utils
@@ -100,6 +102,8 @@
         # `gnome-extensions list` for a list
         enabled-extensions = [
           "clipboard-indicator@tudmotu.com"
+          "just-perfection-desktop@just-perfection"
+          "argos@pew.worldwidemann.com"
         ];
         disable-extension-version-validation = true;
       }; 
@@ -138,6 +142,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".local/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com".source = "${pkgs.gnomeExtensions.clipboard-indicator}/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com";
+    ".local/share/gnome-shell/extensions/just-perfection-desktop@just-perfection".source = "${pkgs.gnomeExtensions.just-perfection}/share/gnome-shell/extensions/just-perfection-desktop@just-perfection";
+    ".local/share/gnome-shell/extensions/argos@pew.worldwidemann.com".source = "${pkgs.gnomeExtensions.argos}/share/gnome-shell/extensions/argos@pew.worldwidemann.com";
+    # ".config/argos/vpn-status.2s.sh".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/vpn-status.sh";
   };
 
   # Home Manager can also manage your environment variables through
