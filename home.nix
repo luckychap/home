@@ -145,7 +145,7 @@
     ".local/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com".source = "${pkgs.gnomeExtensions.clipboard-indicator}/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com";
     ".local/share/gnome-shell/extensions/just-perfection-desktop@just-perfection".source = "${pkgs.gnomeExtensions.just-perfection}/share/gnome-shell/extensions/just-perfection-desktop@just-perfection";
     ".local/share/gnome-shell/extensions/argos@pew.worldwidemann.com".source = "${pkgs.gnomeExtensions.argos}/share/gnome-shell/extensions/argos@pew.worldwidemann.com";
-    ".config/argos/vpn-status.5s.sh".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/vpn-status.sh";
+    ".config/argos/vpn-status.30s.sh".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/vpn-status.sh";
   };
 
   # Home Manager can also manage your environment variables through
