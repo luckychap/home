@@ -5,7 +5,7 @@
     extraOptionOverrides = {
       AddKeysToAgent = "yes";
     };
-    matchBlocks = {
+    settings = {
       # Work
       "git.ads.local" = {
         hostname = "git.ads.local";
@@ -52,6 +52,18 @@
         user = "toor";
         hostname = "10.180.136.20";
         identityFile = "~/.ssh/id_ed25519_ctl";
+        serverAliveInterval = 60;
+      };
+      "bakA-master" = {
+        user = "root";
+        hostname = "10.180.136.220";
+        identityFile = "~/.ssh/id_rsa_general";
+        serverAliveInterval = 60;
+      };
+      "bakX-master" = {
+        user = "root";
+        hostname = "10.180.137.201";
+        identityFile = "~/.ssh/id_rsa_general";
         serverAliveInterval = 60;
       };
       # Home
