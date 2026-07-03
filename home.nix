@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
-# let
-#   ptyxisProfileUuid = "1ac2893a560c4bb82ca5563469ee6ff1";
-# in
+let
+  hermes-agent = builtins.getFlake "github:NousResearch/hermes-agent";
+in
 
 {
   # Home Manager needs to enable using unfree packages
@@ -16,7 +16,11 @@
   home.username = "${config.home.sessionVariables.USER}";
   home.homeDirectory = "/home/${config.home.sessionVariables.USER}";
 
-  home.stateVersion = "24.11"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
+
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 
   home.packages = with pkgs; [
     # Containers
@@ -53,6 +57,10 @@
 
     # Development tools
     devbox
+
+    # AI
+    # hermes-agent.packages.${pkgs.system}.full
+    github-copilot-cli
 
     # Network
     nmap
