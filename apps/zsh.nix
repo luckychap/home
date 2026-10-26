@@ -27,8 +27,9 @@
     initContent = ''
       [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
       # Homebrew environment
-      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-      if [ -e /home/lucky/.nix-profile/etc/profile.d/nix.sh ]; then . /home/lucky/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+      # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      if [ -e /home/${config.home.sessionVariables.USER}/.nix-profile/etc/profile.d/nix.sh ]; then . /home/${config.home.sessionVariables.USER}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+      # Include ~.local/bin into the PATH
       export PATH="$HOME/.local/bin:$PATH"
     '';
     autosuggestion.enable = true;

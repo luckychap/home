@@ -1,0 +1,116 @@
+#!/usr/bin/env bash
+#
+# copilot-quota.sh - show remaining GitHub Copilot quota (github.com or GHE.com)
+#
+# Usage:
+#   ./copilot-quota.sh                 # github.com
+#   GH_HOST=acme.ghe.com ./copilot-quota.sh
+#   ./copilot-quota.sh -H acme.ghe.com
+#   ./copilot-quota.sh --json          # raw JSON output
+#
+# Token lookup order:
+#   1. $COPILOT_TOKEN / $GITHUB_TOKEN / $GH_TOKEN
+#   2. `gh auth token --hostname <host>` (GitHub CLI)
+#   3. ~/.config/github-copilot/apps.json (written by Copilot IDE plugins)
+#
+# NOTE: This uses an UNDOCUMENTED internal endpoint (/copilot_internal/user).
+#       It may change or break without notice. Copilot meters "premium requests",
+#       not raw LLM tokens, so that's what is reported here.
+
+set -euo pipefail
+
+HOST="${GH_HOST:-github.com}"
+RAW=0
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -H|--host) HOST="$2"; shift 2 ;;
+    --json)    RAW=1; shift ;;
+    -h|--help) sed -n '2,19p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    *) echo "Unknown option: $1" >&2; exit 2 ;;
+  esac
+done
+
+for cmd in curl jq; do
+  command -v "$cmd" >/dev/null || { echo "Error: '$cmd' is required." >&2; exit 1; }
+done
+
+# ---- API base URL ----------------------------------------------------------
+if [[ "$HOST" == "github.com" ]]; then
+  API="https://api.github.com"
+elif [[ "$HOST" == *.ghe.com ]]; then
+  API="https://api.${HOST}"          # GHE.com (data residency)
+else
+  API="https://${HOST}/api/v3"       # GHES (endpoint may not exist there)
+fi
+
+# ---- Token lookup ----------------------------------------------------------
+TOKEN="${COPILOT_TOKEN:-${GITHUB_TOKEN:-${GH_TOKEN:-}}}"
+
+if [[ -z "$TOKEN" ]] && command -v gh >/dev/null; then
+  TOKEN="$(gh auth token --hostname "$HOST" 2>/dev/null || true)"
+fi
+
+if [[ -z "$TOKEN" ]]; then
+  for f in "$HOME/.config/github-copilot/apps.json" "$HOME/.config/github-copilot/hosts.json"; do
+    if [[ -f "$f" ]]; then
+      TOKEN="$(jq -r --arg h "$HOST" \
+        'to_entries[] | select(.key | startswith($h)) | .value.oauth_token' "$f" 2>/dev/null | head -n1 || true)"
+      [[ -n "$TOKEN" && "$TOKEN" != "null" ]] && break || TOKEN=""
+    fi
+  done
+fi
+
+if [[ -z "$TOKEN" ]]; then
+  echo "Error: no token found. Set GITHUB_TOKEN, run 'gh auth login', or sign in to Copilot in an IDE." >&2
+  exit 1
+fi
+
+# ---- Request ---------------------------------------------------------------
+RESP="$(curl -sS --fail-with-body \
+  -H "Authorization: token ${TOKEN}" \
+  -H "Accept: application/json" \
+  -H "Editor-Version: vscode/1.99.0" \
+  -H "Editor-Plugin-Version: copilot-chat/0.26.7" \
+  -H "User-Agent: GitHubCopilotChat/0.26.7" \
+  "${API}/copilot_internal/user")" || {
+    echo "Error: request failed:" >&2
+    echo "$RESP" >&2
+    exit 1
+  }
+
+if [[ "$RAW" -eq 1 ]]; then
+  echo "$RESP" | jq .
+  exit 0
+fi
+
+# ---- Pretty output ---------------------------------------------------------
+PLAN="$(echo "$RESP"  | jq -r '.copilot_plan // .access_type_sku // "unknown"')"
+RESET="$(echo "$RESP" | jq -r '.quota_reset_date // .limited_user_reset_date // "n/a"')"
+
+echo "Host:   ${HOST}"
+echo "Plan:   ${PLAN}"
+echo "Resets: ${RESET}"
+echo
+
+if echo "$RESP" | jq -e '.quota_snapshots' >/dev/null 2>&1; then
+  printf "%-22s %10s %10s %10s\n" "QUOTA" "REMAINING" "TOTAL" "LEFT %"
+  echo "$RESP" | jq -r '
+    .quota_snapshots | to_entries[] |
+    [ .key,
+      (if .value.unlimited then "unlimited" else (.value.remaining // "-" | tostring) end),
+      (if .value.unlimited then "unlimited" else (.value.entitlement // "-" | tostring) end),
+      (if .value.unlimited then "-" else ((.value.percent_remaining // 0) | . * 10 | round / 10 | tostring) end)
+    ] | @tsv' |
+  while IFS=$'\t' read -r name rem total pct; do
+    printf "%-22s %10s %10s %10s\n" "$name" "$rem" "$total" "$pct"
+  done
+elif echo "$RESP" | jq -e '.limited_user_quotas' >/dev/null 2>&1; then
+  # Older / free-tier response shape
+  echo "$RESP" | jq -r '
+    .limited_user_quotas as $left | .monthly_quotas as $tot |
+    $left | to_entries[] | "\(.key): \(.value) / \($tot[.key]) remaining"'
+else
+  echo "No quota data in response (org-managed seats may not expose quotas)."
+  echo "Run with --json to inspect the raw response."
+fi

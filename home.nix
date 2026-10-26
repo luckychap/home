@@ -154,6 +154,8 @@ in
     ".local/share/gnome-shell/extensions/just-perfection-desktop@just-perfection".source = "${pkgs.gnomeExtensions.just-perfection}/share/gnome-shell/extensions/just-perfection-desktop@just-perfection";
     ".local/share/gnome-shell/extensions/argos@pew.worldwidemann.com".source = "${pkgs.gnomeExtensions.argos}/share/gnome-shell/extensions/argos@pew.worldwidemann.com";
     ".config/argos/vpn-status.30s.sh".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/vpn-status.sh";
+    ".local/bin/copilot-quota".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/copilot-quota";
+    ".config/argos/quota.60s.sh".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/quota.sh";
   };
 
   # Home Manager can also manage your environment variables through
