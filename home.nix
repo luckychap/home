@@ -160,7 +160,8 @@ in
     ".local/share/gnome-shell/extensions/argos@pew.worldwidemann.com".source = "${pkgs.gnomeExtensions.argos}/share/gnome-shell/extensions/argos@pew.worldwidemann.com";
     ".config/argos/vpn-status.30s.sh".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/vpn-status.sh";
     ".local/bin/copilot-quota".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/copilot-quota";
-    ".config/argos/quota.60s.sh".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/quota.sh";
+    ".config/argos/sub-quota.60s.sh".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/sub-quota.sh";
+    ".config/argos/openrouter-quota.30m.sh".source = "/home/${config.home.sessionVariables.USER}/.config/home-manager/scripts/openrouter-quota.sh";
   };
 
   # Home Manager can also manage your environment variables through
