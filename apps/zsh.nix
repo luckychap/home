@@ -34,6 +34,7 @@
     '';
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    syntaxHighlighting.styles.comment = "fg=#B0B0B0";
     historySubstringSearch.enable = true;
   };
 }
