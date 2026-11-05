@@ -99,7 +99,7 @@ in
 #    ./apps/vscode.nix
     ./apps/bash.nix
     ./apps/zsh.nix
-#    ./apps/systemd.nix
+    ./apps/systemd.nix
     ./services/ssh-agent.nix
     ./vars/session-vars.nix
   ];
