@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Argos runs with GNOME Shell's minimal PATH, which lacks the nix profile.
+export PATH="$HOME/.nix-profile/bin:$PATH"
+
 set -a
 source ~/.config/gh/.vars
 set +a
