@@ -8,7 +8,14 @@ set -a
 source ~/.config/or/.vars
 set +a
 
-data=$(curl -fsS -H "Authorization: Bearer $OPENROUTER_API_KEY" https://openrouter.ai/api/v1/credits) || {
+# Retry on transient network/server errors (e.g. connection not yet up after resume).
+or_curl() {
+  curl -fsS --connect-timeout 5 --max-time 15 \
+    --retry 5 --retry-delay 2 --retry-connrefused --retry-all-errors \
+    -H "Authorization: Bearer $OPENROUTER_API_KEY" "$1"
+}
+
+data=$(or_curl https://openrouter.ai/api/v1/credits) || {
   echo "OR: error"
   exit 0
 }
@@ -19,7 +26,7 @@ remaining=$(jq -n --argjson t "$total" --argjson u "$usage" '$t - $u')
 
 printf 'OR: $%.2f\n' "$remaining"
 echo "---"
-key=$(curl -fsS -H "Authorization: Bearer $OPENROUTER_API_KEY" https://openrouter.ai/api/v1/key) || key='{"data":{}}'
+key=$(or_curl https://openrouter.ai/api/v1/key) || key='{"data":{}}'
 
 # OpenRouter only exposes per-UTC-day usage, not a rolling 24h window.
 echo "SPENT (this key):"
