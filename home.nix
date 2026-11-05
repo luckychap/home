@@ -21,10 +21,11 @@ in
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
+  fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     # Containers
-    docker
+    # docker
     docker-compose
     kind
     cloud-provider-kind
@@ -41,15 +42,13 @@ in
     # Shell tools
     gum
     curl
-    # xclip
     wl-clipboard
     awscli2
     nodejs_24
-
-    # zsh
-    # zsh-autosuggestions
-    # zsh-history-substring-search
-    # zsh-syntax-highlighting
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    nerd-fonts.iosevka
+    dos2unix
 
     # Security
     # vault
@@ -59,8 +58,7 @@ in
     devbox
 
     # AI
-    # hermes-agent.packages.${pkgs.system}.full
-    github-copilot-cli
+    ollama
 
     # Network
     nmap
@@ -69,6 +67,7 @@ in
     zulu17
     python312
     python312Packages.pip
+    uv
 
     # System
     htop
@@ -78,14 +77,16 @@ in
     smile
     solaar
     cifs-utils
-    smbnetfs
     fuse3
 
     # Others
     standardnotes
     vlc
     pinta
-    brave
+    # brave
+    govc
+    cargo
+    winboat
 
   ];
 
@@ -125,6 +126,10 @@ in
         binding = "<Shift><Super>e";
         command = "sh -c '/home/${config.home.sessionVariables.USER}/.nix-profile/bin/smile'";
         name = "emoji";
+      };
+      "org/gnome/Ptyxis" = {
+        use-system-font = false;
+        font-name = "JetBrainsMono Nerd Font Mono 10";
       };
       "org/gnome/desktop/peripherals/touchpad" = {
         disable-while-typing = true;
@@ -175,7 +180,6 @@ in
   #  /etc/profiles/per-user/lakatos/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-  #   USER = builtins.getEnv "USER";
     PTYXIS_PROFILE = builtins.getEnv "PTYXIS_PROFILE";
   };
 

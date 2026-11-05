@@ -10,7 +10,7 @@ percent_remaining=$(echo "$data" | jq -r '.quota_snapshots.premium_interactions.
 remaining=$(echo "$data" | jq -r '.quota_snapshots.premium_interactions.remaining')
 entitlement=$(echo "$data" | jq -r '.quota_snapshots.premium_interactions.entitlement')
 
-echo "$percent_remaining%"
+echo "SUB: $percent_remaining%"
 echo "---"
-
+echo "REMAINING TOKENS:"
 echo "$remaining / $entitlement"
